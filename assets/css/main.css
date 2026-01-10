@@ -12,7 +12,6 @@ html {
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: linear-gradient(180deg, #FF9C3A 0%, #918dee 100%);
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -29,8 +28,6 @@ body::before {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 200%;
-    height: 200%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 50px 50px;
     animation: moveBackground 20s linear infinite;
@@ -48,12 +45,24 @@ body::before {
 }
 
 /* Top Bar */
+/* .top-bar {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 16px 0;
+    font-size: 14px;
+    width: 100%;
+} */
+
 .top-bar {
     background-color: #2d2d2d;
     color: #ffffff;
     padding: 16px 0;
-    font-size: 13px;
+    font-size: 14px;
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
 }
 
 .top-bar-content {
@@ -83,8 +92,9 @@ body::before {
 .header {
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 46px;
+    left: 0;
     z-index: 1000;
     width: 100%;
 }
@@ -92,17 +102,19 @@ body::before {
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 100px;
 }
+
 
 /* Navigation */
 .nav-menu {
     display: flex;
-    gap: 35px;
+    gap: 41px;
     list-style: none;
     align-items: center;
 }
@@ -115,7 +127,7 @@ body::before {
     color: #2d2d2d;
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
     transition: color 0.3s;
     display: flex;
     align-items: center;
@@ -267,6 +279,7 @@ body::before {
     text-align: center;
     position: relative;
     z-index: 1;
+    margin-top: 146px;
 }
 
 .title {
@@ -302,13 +315,34 @@ body::before {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     opacity: 0.9;
+    padding: 4px;
+
 }
 
 .aiebike-logo {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 10px;
+    border-radius: 12px;
+}
+
+/* .logo-navigation {
+    width: clamp(80px, 40vw, 80px);
+    height: clamp(80px, 40vw, 80px);
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    opacity: 0.9;
+} */
+
+.aiebike-logo-navigation {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
 
 .logo::before {
@@ -374,10 +408,8 @@ body::before {
     max-width: 220px;
     position: relative;
     overflow: hidden;
-    letter-spacing: 0.3px;
+    margin-bottom: 12px;
 }
-
-
 
 .download-btn::before {
     content: '';
@@ -588,6 +620,16 @@ body::before {
     width: 100%;
 }
 
+.bocongthuong {
+    width: 210px;
+    height: 82px;
+}
+
+.dmca {
+    width: 210px;
+    height: 120px;
+}
+
 .newsletter h3 {
     color: #ffffff !important;
     margin-bottom: 15px;
@@ -676,11 +718,15 @@ body::before {
     text-decoration: underline;
 }
 
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .top-bar {
         font-size: 11px;
         padding: 6px 0;
+        position: fixed;
+        top: 0;
     }
 
     .top-bar-content {
@@ -704,13 +750,26 @@ body::before {
         display: block;
     }
 
+    .header {
+        top: 30px;
+    }
+
     .header-content {
-        padding: 12px 15px;
+        padding: 0 15px;
+        height: 80px;
+    }
+
+    .container {
+        margin-top: 110px;
     }
 
     .cart-icon svg {
         width: 24px;
         height: 24px;
+    }
+
+    .aiebike-logo-navigation {
+        display: none;
     }
 
 }
@@ -745,10 +804,17 @@ body::before {
         }
     }
 
-
+    .header {
+        top: 28px;
+    }
 
     .header-content {
-        padding: 12px 10px;
+        padding: 0 10px;
+        height: 70px;
+    }
+
+    .container {
+        margin-top: 98px;
     }
 
     .top-bar-content {
@@ -757,6 +823,10 @@ body::before {
 
     .sub-download {
         font-size: 14px;
+    }
+
+    .aiebike-logo-navigation {
+        display: none;
     }
 }
 
@@ -778,6 +848,7 @@ body::before {
     .sub-download {
         font-size: 14px;
     }
+
 }
 
 /* Desktop breakpoint */
@@ -794,6 +865,8 @@ body::before {
     .certification-badges {
         justify-content: flex-start;
     }
+
+
 
 }
 
