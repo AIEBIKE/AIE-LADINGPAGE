@@ -340,8 +340,7 @@ body::before {
 } */
 
 .aiebike-logo-navigation {
-    width: 100px;
-    height: 100px;
+    width: 300px;
     object-fit: contain;
 }
 
@@ -767,11 +766,6 @@ body::before {
         width: 24px;
         height: 24px;
     }
-
-    .aiebike-logo-navigation {
-        display: none;
-    }
-
 }
 
 @media (max-width: 480px) {
@@ -823,10 +817,6 @@ body::before {
 
     .sub-download {
         font-size: 14px;
-    }
-
-    .aiebike-logo-navigation {
-        display: none;
     }
 }
 
